@@ -109,9 +109,9 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           cd lambda/image_validator
-          docker build -t image-validator:latest .
-          docker tag image-validator:latest 451790114213.dkr.ecr.us-east-1.amazonaws.com/image-validator:latest
-          docker push 451790114213.dkr.ecr.us-east-1.amazonaws.com/image-validator:latest
+          docker build -t image-validator:$IMAGE_TAG .
+          docker tag image-validator:$IMAGE_TAG 451790114213.dkr.ecr.us-east-1.amazonaws.com/image-validator:$IMAGE_TAG
+          docker push 451790114213.dkr.ecr.us-east-1.amazonaws.com/image-validator:$IMAGE_TAG
 
       - name: Check if Lambda function exists
         id: check-lambda-image-validator
