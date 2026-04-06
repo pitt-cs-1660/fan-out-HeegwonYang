@@ -66,7 +66,7 @@ def lambda_handler(event, context):
     #                 CopySource={'Bucket': bucket, 'Key': key})
             if validExt is True:
                 print(f"[VALID] {key} is a valid image file")
-                name = os.path.splitext(key.split('/')[-1])[0]
+                name = key.split('/')[-1]
                 s3.copy_object(
                     Bucket=bucket,
                     Key=f"processed/valid/{name}",
