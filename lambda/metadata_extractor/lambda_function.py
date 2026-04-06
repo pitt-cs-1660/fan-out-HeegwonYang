@@ -72,7 +72,7 @@ def lambda_handler(event, context):
             }
             
     # todo: get the filename from the key (e.g. "uploads/test.jpg" -> "test")
-            name = os.path.splitext(key.split('/')[-1])
+            name = os.path.splitext(key.split('/')[-1])[0]
     #       hint: use os.path.splitext(key.split('/')[-1])[0]
     # todo: write the metadata dict as JSON to s3 at processed/metadata/{filename}.json
     #       hint: s3.put_object(Bucket=bucket, Key=f"processed/metadata/{filename}.json",
