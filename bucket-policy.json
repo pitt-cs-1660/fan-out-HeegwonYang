@@ -12,8 +12,8 @@
         "s3:ListBucket"
       ],
       "Resource": [
-        "arn:aws:s3:::cc-images-<your-pitt-username>",
-        "arn:aws:s3:::cc-images-<your-pitt-username>/*"
+        "arn:aws:s3:::cc-images-hey14",
+        "arn:aws:s3:::cc-images-hey14/*"
       ]
     }
   ]
