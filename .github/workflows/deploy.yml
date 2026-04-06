@@ -43,7 +43,6 @@ jobs:
           docker build -t metadata-extractor:latest .
           docker tag metadata-extractor:latest 451790114213.dkr.ecr.us-east-1.amazonaws.com/metadata-extractor:latest
           docker push 451790114213.dkr.ecr.us-east-1.amazonaws.com/metadata-extractor:latest
-          exit 1
 
       - name: Check if Lambda function exists
         id: check-lambda-metadata-extractor
@@ -113,7 +112,6 @@ jobs:
           docker build -t image-validator:latest .
           docker tag image-validator:latest 451790114213.dkr.ecr.us-east-1.amazonaws.com/image-validator:latest
           docker push 451790114213.dkr.ecr.us-east-1.amazonaws.com/image-validator:latest
-          exit 1
 
       - name: Check if Lambda function exists
         id: check-lambda-image-validator
