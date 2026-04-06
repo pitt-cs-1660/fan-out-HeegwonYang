@@ -1,0 +1,18 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::451790114213:user/hey14"
+      },
+      "Action": [
+        "s3:CreateBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::cc-images-hey14",
+        "arn:aws:s3:::cc-images-hey14/*"
+      ]
+    }
+  ]
+}
