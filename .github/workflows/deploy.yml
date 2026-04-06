@@ -40,9 +40,9 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           cd lambda/metadata_extractor
-          docker build -t metadata-extractor:latest .
-          docker tag metadata-extractor:latest 451790114213.dkr.ecr.us-east-1.amazonaws.com/metadata-extractor:latest
-          docker push 451790114213.dkr.ecr.us-east-1.amazonaws.com/metadata-extractor:latest
+          docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
+          docker tag $ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Check if Lambda function exists
         id: check-lambda-metadata-extractor
@@ -58,7 +58,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: metadata-extractor
-          IMAGE_TAG: latest
+          IMAGE_TAG: ${{ github.sha }}
         run: |
           aws lambda create-function \
             --function-name metadata-extractor \
